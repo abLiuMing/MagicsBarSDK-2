@@ -1,0 +1,48 @@
+//
+//  libFM-Prefix.pch
+//  fm
+//
+//  Created by wysaid on 15/7/10.
+//  Copyright (c) 2015年 wysaid. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif
+
+#ifndef fm_libFM_Prefix_pch
+#define fm_libFM_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//仅作为编译文件内区分sdk版本使用， (V2.0.0开始)不再用来区分头文件 (各个版本分开指定相应的头文件)
+#define IOS_SDK 1
+#define FM_TEXTURE_PREMULTIPLIED 1
+
+//#define _FM_ONLY_FILTERS_ 1
+
+//_FM_STATIC_ASSERT_ 为过时设定， 用于兼容不支持 C++ 11 static_assert 配置
+//#define _FM_STATIC_ASSERT_ 1
+
+//定义 _FM_IOS_NO_LOGS_ 可以强制消除所有的fm内建log
+//#define _FM_IOS_NO_LOGS_
+
+#define _FM_DISABLE_GLOBALCONTEXT_ 1
+#define FM_LOG_CODE(...)
+
+#if 1
+#define FM_NSLog(...) NSLog(__VA_ARGS__)
+#define FM_NSLog_Code(...) __VA_ARGS__
+#else
+#define FM_NSLog(...)
+#define FM_NSLog_Code(...)
+#endif
+
+#if defined(DEBUG) || defined(_DEBUG)
+#define _FM_SHOW_RENDER_FPS_ 1
+#define _FM_MEMORY_LEAK_TEST_ 1
+
+#endif
+
+#endif

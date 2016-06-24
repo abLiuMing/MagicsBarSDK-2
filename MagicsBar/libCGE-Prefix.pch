@@ -1,0 +1,48 @@
+//
+//  libCGE-Prefix.pch
+//  cge
+//
+//  Created by wysaid on 15/7/10.
+//  Copyright (c) 2015年 wysaid. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif
+
+#ifndef cge_libCGE_Prefix_pch
+#define cge_libCGE_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//仅作为编译文件内区分sdk版本使用， (V2.0.0开始)不再用来区分头文件 (各个版本分开指定相应的头文件)
+#define IOS_SDK 1
+#define CGE_TEXTURE_PREMULTIPLIED 1
+
+//#define _CGE_ONLY_FILTERS_ 1
+
+//_CGE_STATIC_ASSERT_ 为过时设定， 用于兼容不支持 C++ 11 static_assert 配置
+//#define _CGE_STATIC_ASSERT_ 1
+
+//定义 _CGE_IOS_NO_LOGS_ 可以强制消除所有的cge内建log
+//#define _CGE_IOS_NO_LOGS_
+
+#define _CGE_DISABLE_GLOBALCONTEXT_ 1
+#define CGE_LOG_CODE(...)
+
+#if 1
+#define CGE_NSLog(...) NSLog(__VA_ARGS__)
+#define CGE_NSLog_Code(...) __VA_ARGS__
+#else
+#define CGE_NSLog(...)
+#define CGE_NSLog_Code(...)
+#endif
+
+#if defined(DEBUG) || defined(_DEBUG)
+#define _CGE_SHOW_RENDER_FPS_ 1
+#define _CGE_MEMORY_LEAK_TEST_ 1
+
+#endif
+
+#endif
